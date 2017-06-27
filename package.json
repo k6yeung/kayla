@@ -1,0 +1,26 @@
+{
+    "name": "kyla",
+    "version": "1.0.0",
+    "description": "A npm module containing various probabilistic filters, written in TypeScript",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/chewong/kyla.git"
+    },
+    "author": "Ernest Wong",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/chewong/kyla/issues"
+    },
+    "homepage": "https://github.com/chewong/kyla#readme",
+    "devDependencies": {
+        "gulp": "latest",
+        "gulp-tslint": "latest",
+        "gulp-typescript": "latest",
+        "tslint": "latest",
+        "typescript": "latest"
+    }
+}
