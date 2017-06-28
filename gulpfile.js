@@ -13,8 +13,12 @@ gulp.task("default", () => {
 });
 
 gulp.task("lint", () => {
-    return tsProject.src()
-        .pipe(tslint());
+    return gulp.src([
+            "src/bloom/bloom.ts",
+            "test/bloom/bloom.ts"
+        ])
+        .pipe(tslint())
+        .pipe(tslint.report());
 });
 
 gulp.task("test", () => {

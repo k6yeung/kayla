@@ -19,11 +19,13 @@
   "devDependencies": {
     "@types/chai": "latest",
     "@types/mocha": "latest",
+    "@types/murmurhash3js": "^3.0.1",
     "chai": "latest",
     "gulp": "latest",
     "gulp-mocha": "latest",
     "gulp-tslint": "latest",
     "gulp-typescript": "latest",
+    "murmurhash3js": "^3.0.1",
     "tslint": "latest",
     "typescript": "latest"
   }
