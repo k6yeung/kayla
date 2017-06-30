@@ -5,7 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "prepublish": "gulp",
-    "test": "gulp test"
+    "test": "gulp test",
+    "clean": "rm -rf build && rm -rd definitions"
   },
   "repository": {
     "type": "git",
