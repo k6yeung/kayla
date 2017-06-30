@@ -27,7 +27,8 @@
     "gulp-tslint": "latest",
     "gulp-typescript": "latest",
     "tslint": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "merge2": "latest"
   },
   "dependencies": {
     "murmurhash3js": "latest"
