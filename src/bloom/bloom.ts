@@ -1,6 +1,6 @@
 import * as murmur3 from "murmurhash3js";
 
-interface IFilter<T> {
+export interface IFilter<T> {
     approximateElementCount: () => number;
     mightContain: (object: T) => boolean;
     put: (object: T) => boolean;
@@ -23,11 +23,11 @@ export class BloomFilter<T> implements IFilter<T> {
         return Math.round((-n * Math.log(p)) / ((Math.log(2)) ** 2));
     }
 
-    /** The length of the bit array */
-    private readonly numBits: number;
-
     /** The number of bits in the bit array which are true */
     private numTrueBits: number;
+
+    /** The length of the bit array */
+    private readonly numBits: number;
 
     /** The number of hash functions used in this bloom filter */
     private readonly numHashFunctions: number;
@@ -48,11 +48,11 @@ export class BloomFilter<T> implements IFilter<T> {
      */
     constructor(expectedInsertions: number, falsePositiveRate: number = 0.03) {
         if (expectedInsertions < 1) {
-            throw new Error("");
+            throw new Error("Expected insertions cannot be zero or negative.");
         }
 
         if (falsePositiveRate < 0 || falsePositiveRate > 1) {
-            throw new Error("");
+            throw new Error("The false positive rate has to be between 0 to 1.");
         }
 
         this.numTrueBits = 0;

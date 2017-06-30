@@ -1,10 +1,11 @@
 {
   "name": "kayla",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A npm module containing various probabilistic filters, written in TypeScript",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "gulp",
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -19,14 +20,16 @@
   "devDependencies": {
     "@types/chai": "latest",
     "@types/mocha": "latest",
-    "@types/murmurhash3js": "^3.0.1",
+    "@types/murmurhash3js": "latest",
     "chai": "latest",
     "gulp": "latest",
     "gulp-mocha": "latest",
     "gulp-tslint": "latest",
     "gulp-typescript": "latest",
-    "murmurhash3js": "^3.0.1",
     "tslint": "latest",
     "typescript": "latest"
+  },
+  "dependencies": {
+    "murmurhash3js": "latest"
   }
 }

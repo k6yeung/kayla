@@ -1,0 +1,11 @@
+src/
+definitions/
+test/
+.editorconfig
+.travis.yml
+gulpfile.js
+index.ts
+LICENSE
+README.md
+tsconfig.json
+tslint.json

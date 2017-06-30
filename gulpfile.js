@@ -3,27 +3,30 @@ const ts = require("gulp-typescript");
 const tslint = require("gulp-tslint");
 const mocha = require("gulp-mocha");
 
-const tsProject = ts.createProject("./src/tsconfig.json");
-const tsTestProject = ts.createProject("./test/tsconfig.json");
 
 gulp.task("default", () => {
-    return tsProject.src()
-        .pipe(tsProject())
-        .js.pipe(gulp.dest("build/src/bloom"));
+    const tsProject = ts.createProject("./tsconfig.json");
+    const merge = require('merge2');
+    const tsResult = tsProject.src()
+        .pipe(tsProject());
+
+    return merge([
+        tsResult.dts.pipe(gulp.dest('./definitions')),
+        tsResult.js.pipe(gulp.dest(tsProject.config.compilerOptions.outDir))
+    ]);
 });
 
 gulp.task("lint", () => {
     return gulp.src([
             "src/bloom/bloom.ts",
-            "test/bloom/bloom.ts"
+            "test/bloom/bloom.ts",
+            "gulpfile.js",
         ])
         .pipe(tslint())
         .pipe(tslint.report());
 });
 
 gulp.task("test", () => {
-    return tsTestProject.src()
-        .pipe(tsProject())
-        .js.pipe(gulp.dest("build/test/bloom"))
+    return gulp.src("build/test/bloom")
         .pipe(mocha());
 });
